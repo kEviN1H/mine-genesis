@@ -16,7 +16,9 @@ Add the actual miner under consensus.hashGenesisBlock = AND don't forget to chan
         if (CheckProofOfWork(genesis.GetHash(), genesis.nBits, consensus)) { 
             printf("hash: %s\n", genesis.GetHash().GetHex().c_str()); 
             printf("nonce: %i\n", nNonce); 
-	    printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+	    printf("merkle: %s\n", genesis.hashMerkleRoot.ToString().c_str());
+            printf("nTime: %u \n", genesis.nTime);
+	    printf("V: %u \n", genesis.nVersion);
             break; 
         	} 
  
