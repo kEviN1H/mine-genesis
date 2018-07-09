@@ -16,7 +16,7 @@ Add the actual miner under consensus.hashGenesisBlock = AND don't forget to chan
         if (CheckProofOfWork(genesis.GetHash(), genesis.nBits, consensus)) { 
             printf("hash: %s\n", genesis.GetHash().GetHex().c_str()); 
             printf("nonce: %i\n", nNonce); 
-	    printf("%s\n", genesis.hashMerkleRoot.ToString().c_str()); 
+	    printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
             break; 
         	} 
  
@@ -25,3 +25,9 @@ Add the actual miner under consensus.hashGenesisBlock = AND don't forget to chan
             break; 
         	} 
     	}
+
+Also you need to add 
+
+	#include <pow.h>
+	
+Compile and youll recieve and error the first time you load up. Copy all hash, genesis and nonce and update your chainparams.cpp file.
