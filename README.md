@@ -10,8 +10,7 @@ Add the actual miner under consensus.hashGenesisBlock = AND don't forget to chan
 
 	uint32_t nNonce; 
         for(nNonce = 0; ; nNonce++){ 
-        genesis.nNonce = nNonce; 
-        // You can also update genesis.nTime 
+        genesis.nNonce = nNonce;  
  
         if (CheckProofOfWork(genesis.GetHash(), genesis.nBits, consensus)) { 
             printf("hash: %s\n", genesis.GetHash().GetHex().c_str()); 
@@ -32,4 +31,5 @@ Also you need to add
 
 	#include <pow.h>
 	
-Compile and youll recieve and error the first time you load up. Copy all hash, genesis and nonce and update your chainparams.cpp file.
+# How To
+Compile and run your coins daemon. Copy all information and update your chainparams.cpp file. You then remove all the code here from your chainparams.cpp after updating it then "make clean" then recompile your code.
