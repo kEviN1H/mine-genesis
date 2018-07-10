@@ -4,12 +4,13 @@ In src/chainparams.cpp you need to add some code to create the genesis.
 
 Add this near consensus.powlimit =
 
-	bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&);
-  
+		bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params&);
+		arith_uint256 GetBlockProof(const CBlockIndex& block);
+
 Add the actual miner under consensus.hashGenesisBlock = AND don't forget to change the nonce.
 
 	uint32_t nNonce; 
-        for(nNonce = 0; ; nNonce++){ 
+        for(nNonce = 0; ; nNonce++){ //change the nonce to a random number, will fail otherwise.
         genesis.nNonce = nNonce;  
  
         if (CheckProofOfWork(genesis.GetHash(), genesis.nBits, consensus)) { 
